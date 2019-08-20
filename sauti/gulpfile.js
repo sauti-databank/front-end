@@ -1,9 +1,11 @@
 const gulp = require('gulp'); 
 
-gulp.task('process-css', function() {
-    return gulp.src('./src/index.css')
-    .pipe(gulp.dest('./src/dist'));
-});  
+ gulp.task('default', function() {
+     console.log("Gulp js is running")
+ });  
 
-
-gulp.task('default', ['process-css']); 
+// Copies css to publc folder 
+gulp.task('css', function () {
+    return gulp.src('src/css/index.css')
+        .pipe(gulp.dest('public/css'));
+}) 
