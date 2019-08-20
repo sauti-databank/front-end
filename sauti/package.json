@@ -27,6 +27,7 @@
     "defaults"
   ],
   "devDependencies": {
+    "gulp-clean-css": "^4.2.0",
     "gulp-yarn": "^2.0.0"
   }
 }
