@@ -3,11 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@babel/preset-env": "^7.5.5",
-    "@babel/preset-react": "^7.0.0",
     "@nivo/bar": "^0.59.2",
     "axios": "^0.19.0",
-    "babel-cli": "^6.26.0",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
     "nivo": "^0.31.0",
@@ -32,11 +29,7 @@
     "defaults"
   ],
   "devDependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "gulp-babel": "^8.0.0",
     "gulp-clean-css": "^4.2.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-uglify": "^3.0.2",
     "gulp-yarn": "^2.0.0"
   }
 }
