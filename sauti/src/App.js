@@ -3,7 +3,7 @@ import axios from "axios";
 import Chart from "./Components/Chart/Chart";
 // import Transformation from "../Transformation"
 // import ComSelTransformation from "./Components/ComSelTransformation"
-import "./App.scss";
+import "./sass/App.scss";
 
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
