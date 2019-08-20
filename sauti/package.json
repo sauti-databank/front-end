@@ -25,5 +25,8 @@
   },
   "browserslist": [
     "defaults"
-  ]
+  ],
+  "devDependencies": {
+    "gulp-yarn": "^2.0.0"
+  }
 }
