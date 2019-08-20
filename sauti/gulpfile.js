@@ -3,6 +3,8 @@ const gulp = require('gulp');
 const cleanCSS = require('gulp-clean-css'); 
 // Compiles sass
 const sass = require('gulp-sass'); 
+// Minify js 
+const uglify = require('gulp-uglify'); 
 
  gulp.task('default', function() {
      console.log("Gulp js is running")
@@ -15,3 +17,9 @@ gulp.task('css', function () {
         .pipe(cleanCSS({compatibility: 'ie8'}))
         .pipe(gulp.dest('public/css'));
 }) 
+
+gulp.task('jsMinify', function() {
+    return gulp.src('src/js/App.js')
+    .pipe(uglify())
+    .pipe(gulp.dest('public/js'));
+});

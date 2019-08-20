@@ -1,9 +1,9 @@
 import React from "react";
 import axios from "axios";
-import Chart from "./Components/Chart/Chart";
+import Chart from "../Components/Chart/Chart";
 // import Transformation from "../Transformation"
 // import ComSelTransformation from "./Components/ComSelTransformation"
-import "./sass/App.scss";
+import "../sass/App.scss";
 
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
