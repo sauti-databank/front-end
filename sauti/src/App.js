@@ -1,3 +1,16 @@
+/* NOLAN (09-17-19 | 10:36pm):
+  After some hiccups with my permissions, I've smoothed out functionality and am able to fully manipulate
+  the project.
+
+  I've been over the frontend a few times to familiarize myself with what was put together, but through this
+  branch, I'll make notations on previously-implemented code and possible methods on how to better-achieve
+  Sauti's end-goal through React/Redux.
+
+  First thoughts: the code is easy enough to read, easy enough to follow. It's fairly straight forward, but
+  we can probably make it even more straight forward while running faster. I'll be looking through chart
+  libraries after my first commit; I'm certain we can find something better.
+*/
+
 import React from "react";
 import axios from "axios";
 import Chart from "./Components/Chart/Chart";
