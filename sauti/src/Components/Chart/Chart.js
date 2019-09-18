@@ -11,11 +11,13 @@ import CrossingFreqChart from "./CrossingFreqChart.js";
 import GenderChart from "./GenderChart.js";
 // import Transformation from '../../../Transformation.js/index.js'
 import EducationChart from "./EducationChart";
-import AgeChart from "./AgeChart";
+// import AgeChart from "./AgeChart";
 import CountryChart from "./CountryChart";
 import LanguageChart from "./LanguageChart";
 import PrimaryIncomeChart from "./PrimaryIncomeChart";
 import ProduceChart from "./ProduceChart";
+
+import AgeChart from './AgeChartGoogle';
 
 // Nivo instructions:
 // make sure parent container have a defined height when using
@@ -59,6 +61,18 @@ class Chart extends React.Component {
       <div className="Chart-Container">
         <div>
           <Route
+            exact
+            path="/age-chart"
+            render={props => (
+              <AgeChart
+                pathname={"/age-chart"}
+                getDropDownDefault={this.props.getDropDownDefault}
+                state={this.state}
+              />
+            )}
+          />
+          
+          {/* <Route
             exact
             path="/crossing-frequency-chart"
             render={props => (
@@ -158,7 +172,7 @@ class Chart extends React.Component {
                 state={this.state}
               />
             )}
-          />
+          /> */}
         </div>
       </div>
     );
