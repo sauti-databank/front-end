@@ -1,3 +1,16 @@
+/* NOLAN (09-19-19 | 05:35pm):
+  Thought it is true Google Charts proved to be a poor fit for our project's needs, Azra pointed me to
+  another charting library called D3 (Data-Driven Documents). It looks as if we may be able to modify
+  provided functions to act as both charting object and mathematical function.
+
+  There is something I've noticed as I look over the files, again – particularly the AgeChart. There has
+  to be a way to condense the methods so that objects may be injected into them rather than requiring
+  their very own, fully-written equation.
+  
+  Must look into better methods if we are able to refactor the codebase. I have a feeling that these files'
+  heavily repetitious processes are what slow down chart rendering.
+*/
+
 // Displays chart based on Nivo's required format
 
 // Requiring dependencies
