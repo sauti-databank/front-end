@@ -20,15 +20,18 @@ import React from "react";
 //import axios from "axios";
 
 // Importing components
-import CrossingFreqChart from "./CrossingFreqChart.js";
-import GenderChart from "./GenderChart.js";
+// import CrossingFreqChart from "./CrossingFreqChart.js";
+// import GenderChart from "./GenderChart.js";
 // import Transformation from '../../../Transformation.js/index.js'
-import EducationChart from "./EducationChart";
-import AgeChart from "./AgeChart";
-import CountryChart from "./CountryChart";
-import LanguageChart from "./LanguageChart";
-import PrimaryIncomeChart from "./PrimaryIncomeChart";
-import ProduceChart from "./ProduceChart";
+// import EducationChart from "./EducationChart";
+// import AgeChart from "./AgeChart";
+// import CountryChart from "./CountryChart";
+// import LanguageChart from "./LanguageChart";
+// import PrimaryIncomeChart from "./PrimaryIncomeChart";
+// import ProduceChart from "./ProduceChart";
+
+import { Runtime, Inspector } from '@observablehq/runtime';
+import define from './D3AgeChart/D3AgeChart';
 
 // Nivo instructions:
 // make sure parent container have a defined height when using
@@ -71,7 +74,7 @@ class Chart extends React.Component {
     return (
       <div className="Chart-Container">
         <div>
-          <Route
+          {/* <Route
             exact
             path="/crossing-frequency-chart"
             render={props => (
@@ -94,6 +97,7 @@ class Chart extends React.Component {
               />
             )}
           />
+
           <Route
             exact
             path="/"
@@ -105,6 +109,7 @@ class Chart extends React.Component {
               />
             )}
           />
+
           <Route
             exact
             path="/education-chart"
@@ -115,19 +120,20 @@ class Chart extends React.Component {
                 state={this.state}
               />
             )}
-          />
+          /> */}
+
           <Route
             exact
             path="/age-chart"
-            render={props => (
-              <AgeChart
-              pathname={"/age-chart"}
-                getDropDownDefault={this.props.getDropDownDefault}
-                state={this.state}
-              />
-            )}
+            render={() => {
+              const runtime = new Runtime();
+              const main = runtime.module(define);
+
+              return main;
+            }}
           />
-          <Route
+
+          {/* <Route
             exact
             path="/country-chart"
             render={props => (
@@ -138,6 +144,7 @@ class Chart extends React.Component {
               />
             )}
           />
+
           <Route
             exact
             path="/language-chart"
@@ -149,6 +156,7 @@ class Chart extends React.Component {
               />
             )}
           />
+
           <Route
             exact
             path="/primaryincome-chart"
@@ -161,6 +169,7 @@ class Chart extends React.Component {
               />
             )}
           />
+
           <Route
             exact
             path="/produce-chart"
@@ -171,7 +180,7 @@ class Chart extends React.Component {
                 state={this.state}
               />
             )}
-          />
+          /> */}
         </div>
       </div>
     );
