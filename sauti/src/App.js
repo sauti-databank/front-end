@@ -1,4 +1,4 @@
-/* NOLAN (09-17-19 | 10:36pm):
+/* NOLAN (09-17-19 | 10:36pm CST):
   After some hiccups with my permissions, I've smoothed out functionality and am able to fully manipulate
   the project.
 

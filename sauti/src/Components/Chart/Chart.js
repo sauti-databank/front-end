@@ -1,4 +1,4 @@
-/* NOLAN (09-19-19 | 05:35pm):
+/* NOLAN (09-19-19 | 05:35pm CST):
   Thought it is true Google Charts proved to be a poor fit for our project's needs, Azra pointed me to
   another charting library called D3 (Data-Driven Documents). It looks as if we may be able to modify
   provided functions to act as both charting object and mathematical function.

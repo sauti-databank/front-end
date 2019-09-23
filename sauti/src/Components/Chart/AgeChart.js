@@ -3,6 +3,18 @@ import { ResponsiveBar } from "@nivo/bar";
 import axios from "axios";
 import theme from '../../Constants/Theme.js'
 
+/* NOLAN (09-23-19 | 06:32pm CST):
+  Movement to test D3's chart is still slow. I may have found a new lead with d3-request, which appears
+  to allow API axios calls to be done directly in the chart.
+
+  In honesty, it seems that the entire concept would be better conducted by allowing axios inputs to be
+  fed directly to backend databases which them would be connected into the frontend charts. The major work
+  required looks like refactoring. I know that hope is is really holding out for a charting library that'll
+  do the work for us, but I don't think that's an option--even with D3.
+
+  That's my personal and limited professional opinion. But, I will try to keep putting this together over
+  the next few hours.
+*/
 
 class AgeChart extends React.Component {
   constructor(props) {
