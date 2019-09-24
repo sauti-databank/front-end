@@ -10,18 +10,18 @@ class AgeChart extends React.Component {
       users: [],
       totalCount: 0,
       data: [],
-      keys: ["Twenties", "Thirties", "Forties", "Teens", "Fifties", "Sixties"],
+      keys: ["Teens", "Twenties", "Thirties", "Forties", "Fifties", "Sixties"],
       color: "nivo",
+      teensPercentage: 0,
       twentiesPercentage: 0,
       thirtiesPercentage: 0,
       fortiesPercentage: 0,
-      teensPercentage: 0,
       fiftiesPercentage: 0,
       sixtiesPercentage: 0,
+      teensCount: 0,
       twentiesCount: 0,
       thirtiesCount: 0,
       fortiesCount: 0,
-      teensCount: 0,
       fiftiesCount: 0,
       sixtiesCount: 0
     };
@@ -31,7 +31,8 @@ class AgeChart extends React.Component {
     this.props.getDropDownDefault(this.props.pathname);
 
     axios
-      .get(`${process.env.REACT_APP_BE_URL}/age/all`)
+      // .get(`${process.env.REACT_APP_BE_URL}/age/all`)
+      .get(`https://staging-sauti-labs-14.herokuapp.com/users/all/age/all`)
       .then(res => {
         //console.log('totalCount', res.data.length)
         this.setState(
@@ -39,16 +40,16 @@ class AgeChart extends React.Component {
             ...this.state,
             users: res.data,
             totalCount: res.data.length,
-            twentiesCount: res.data.reduce(function(n, user) {
+            teensCount: res.data.reduce(function(n, user) {
               return n + (user.age === "10-20")
             }, 0),
-            thirtiesCount: res.data.reduce(function(n, user) {
+            twentiesCount: res.data.reduce(function(n, user) {
               return n + (user.age === "20-30")
             }, 0),
-            fortiesCount: res.data.reduce(function(n, user) {
+            thirtiesCount: res.data.reduce(function(n, user) {
               return n + (user.age === "30-40")
             }, 0),
-            teensCount: res.data.reduce(function(n, user) {
+            fortiesCount: res.data.reduce(function(n, user) {
               return n + (user.age === "40-50")
             }, 0),
             fiftiesCount: res.data.reduce(function(n, user) {
@@ -57,6 +58,24 @@ class AgeChart extends React.Component {
             sixtiesCount: res.data.reduce(function(n, user) {
               return n + (user.age === "60-70")
             }, 0)
+            // teensCount: res.data.reduce(function(n, user) {
+            //   return n + (user.age === "10-19")
+            // }, 0),
+            // twentiesCount: res.data.reduce(function(n, user) {
+            //   return n + (user.age === "20-29")
+            // }, 0),
+            // thirtiesCount: res.data.reduce(function(n, user) {
+            //   return n + (user.age === "30-39")
+            // }, 0),
+            // fortiesCount: res.data.reduce(function(n, user) {
+            //   return n + (user.age === "40-49")
+            // }, 0),
+            // fiftiesCount: res.data.reduce(function(n, user) {
+            //   return n + (user.age === "50-59")
+            // }, 0),
+            // sixtiesCount: res.data.reduce(function(n, user) {
+            //   return n + (user.age === "60-69")
+            // }, 0)
           },
           () => {
             this.setPercentages();
@@ -90,10 +109,10 @@ class AgeChart extends React.Component {
     this.setState(
       {
         ...this.state,
+        teensPercentage: teensPercentage,
         twentiesPercentage: twentiesPercentage,
         thirtiesPercentage: thirtiesPercentage,
         fortiesPercentage: fortiesPercentage,
-        teensPercentage: teensPercentage,
         fiftiesPercentage: fiftiesPercentage,
         sixtiesPercentage: sixtiesPercentage
       },
@@ -102,27 +121,27 @@ class AgeChart extends React.Component {
           ...this.state,
           data: [
             {
-              Age: "20-30",
-              Twenties: this.state.twentiesPercentage,
-              TwentiesColor: "hsl(65, 70%, 50%)"
-            },
-            {
-              Age: "30-40",
-              Thirties: this.state.thirtiesPercentage,
-              ThirtiesColor: "hsl(65, 70%, 50%)"
-            },
-            {
-              Age: "40-50",
-              Forties: this.state.fortiesPercentage,
-              FortiesColor: "hsl(65, 70%, 50%)"
-            },
-            {
-              Age: "10-20",
+              Age: "10-19",
               Teens: this.state.teensPercentage,
               TeensColor: "hsl(65, 70%, 50%)"
             },
             {
-              Age: "50-60",
+              Age: "20-29",
+              Twenties: this.state.twentiesPercentage,
+              TwentiesColor: "hsl(65, 70%, 50%)"
+            },
+            {
+              Age: "30-39",
+              Thirties: this.state.thirtiesPercentage,
+              ThirtiesColor: "hsl(65, 70%, 50%)"
+            },
+            {
+              Age: "40-49",
+              Forties: this.state.fortiesPercentage,
+              FortiesColor: "hsl(65, 70%, 50%)"
+            },
+            {
+              Age: "50-59",
               Fifties: this.state.fiftiesPercentage,
               FiftiesColor: "hsl(65, 70%, 50%)"
             },
