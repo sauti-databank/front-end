@@ -18,7 +18,7 @@ import PrimaryIncomeChart from "./PrimaryIncomeChart";
 import ProduceChart from "./ProduceChart";
 
 
-
+import DocumentsInfoChart from './tab2/DocumentsInfoChart'
 import ProceduresComChart from './tab2/ProceduresComChart'
 import DestinationChart from './tab2/ProceduresDestChart'
 import Agency_info from './tab2/AgencyInfoChart'
@@ -216,6 +216,18 @@ class Chart extends React.Component {
               />
             )}
           />
+<Route
+            exact
+            path="/Document-Information-chart"
+            render={props => (
+              <DocumentsInfoChart
+                pathname={"/Document-Information-chart"}
+                getDropDownDefault={this.props.getDropDownDefault}
+                state={this.state}
+              />
+            )}
+          />
+
         </div>
       </div>
     );

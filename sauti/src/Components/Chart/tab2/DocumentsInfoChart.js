@@ -1,7 +1,7 @@
 import React from "react";
 import { ResponsiveBar } from "@nivo/bar";
 import axios from "axios";
-import theme from "../../Constants/Theme.js";
+import theme from "../../../Constants/Theme";
 
 class DocumentsInfoChart extends React.Component {
     constructor(props) {
@@ -44,7 +44,7 @@ class DocumentsInfoChart extends React.Component {
         this.props.getDropDownDefault(this.props.pathname);
 
         // Hard work put to backend will change axios calls
-        axios.get(`${process.env.REACT_APP_BE_URL}/country/all`).then(res => {
+        axios.get(`https://staging-sauti-labs-14.herokuapp.com/info-pro`).then(res => {
             //console.log('totalCount', res.data.length)
             this.setState(
                 {
@@ -52,25 +52,25 @@ class DocumentsInfoChart extends React.Component {
                     users: res.data,
                     totalCount: res.data.length,
                     Import_Permit_Count: res.data.reduce(function (n, user) {
-                        return n + (user.country_of_residence === "KEN");
+                        return n + (user.request_value === "Import Permit");
                     }, 0),
                     National_ID_Card_Passport_Count: res.data.reduce(function (n, user) {
-                        return n + (user.country_of_residence === "UGA");
+                        return n + (user.request_value === "National ID Card / Passport");
                     }, 0),
                     Simplified_Certificate_Of_Origin_Count: res.data.reduce(function (n, user) {
-                        return n + (user.country_of_residence === "RWA");
+                        return n + (user.request_value === "Simplified Certificate Of Origin");
                     }, 0),
                     Yellow_Fever_Card_Count: res.data.reduce(function (n, user) {
-                        return n + (user.country_of_residence === "RWA");
+                        return n + (user.request_value === "Yellow Fever Card");
                     }, 0),
                     Valid_Invoice_Count: res.data.reduce(function (n, user) {
-                        return n + (user.country_of_residence === "RWA");
+                        return n + (user.request_value === "Valid Invoice");
                     }, 0),
                     Import_Entry_Declaration_Form_Count: res.data.reduce(function (n, user) {
-                        return n + (user.country_of_residence === "RWA");
+                        return n + (user.request_value === "Import Entry Declaration Form");
                     }, 0),
                     Phytosanitary_Certificate_Count: res.data.reduce(function (n, user) {
-                        return n + (user.country_of_residence === "UGA");
+                        return n + (user.request_value === "Phytosanitary Certificate");
                     }, 0),
                 },
                 () => {
@@ -147,7 +147,7 @@ class DocumentsInfoChart extends React.Component {
                             ImportEntryDeclarationFormColor: "hsl(65, 70%, 50%)"
                         },
                         {
-                            Commodity: "Phytosanitary Certificate",
+                            Documentation: "Phytosanitary Certificate",
                             PhytosanitaryCert: this.state.Phytosanitary_Certificate_Percentage,
                             PhytosanitaryCertColor: "hsl(65, 70%, 50%)"
                         }, 
@@ -164,7 +164,7 @@ class DocumentsInfoChart extends React.Component {
                 <ResponsiveBar
                     data={this.state.data} // Data needed
                     keys={this.state.keys} // Values to display in Y axis
-                    indexBy="Documents"
+                    indexBy="Documentation"
                     margin={{ top: 50, right: 130, bottom: 75, left: 80 }}
                     padding={0.3}
                     groupMode="stacked"
@@ -179,7 +179,7 @@ class DocumentsInfoChart extends React.Component {
                         tickSize: 5,
                         tickPadding: 5,
                         tickRotation: 0,
-                        legend: "Documents",
+                        legend: "Documentation",
                         legendPosition: "middle",
                         legendOffset: 65
                     }}
@@ -187,7 +187,7 @@ class DocumentsInfoChart extends React.Component {
                         tickSize: 5,
                         tickPadding: 5,
                         tickRotation: 0,
-                        legend: "Percentage of Documents",
+                        legend: "Percentage of Documentation",
                         legendPosition: "middle",
                         legendOffset: -70
                     }}
