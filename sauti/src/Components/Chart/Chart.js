@@ -23,6 +23,7 @@ import ProceduresComChart from './tab2/ProceduresComChart'
 import DestinationChart from './tab2/ProceduresDestChart'
 import Agency_info from './tab2/AgencyInfoChart'
 import ProceduresComCatChart from './tab2/ProceduresComCatChart'
+import DocumentChart from './tab2/DocumentsInfoChart'
 // Nivo instructions:
 // make sure parent container have a defined height when using
 // responsive component, otherwise height will be 0 and
@@ -218,16 +219,14 @@ class Chart extends React.Component {
           />
 <Route
             exact
-            path="/Document-Information-chart"
             render={props => (
-              <DocumentsInfoChart
-                pathname={"/Document-Information-chart"}
+              <DocumentChart
+              pathname={"/Document-Information-chart"}
                 getDropDownDefault={this.props.getDropDownDefault}
                 state={this.state}
               />
             )}
           />
-
         </div>
       </div>
     );
